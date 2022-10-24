@@ -42,6 +42,7 @@ app.use((req, res, next) => {
     res.locals.error = req.flash("error");
     next();
 })
+app.use( express.static( "src"));
 app.use("/auth", authRoute);
 app.use("/profile", profileRoute);
 

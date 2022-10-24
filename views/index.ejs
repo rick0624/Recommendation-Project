@@ -13,37 +13,39 @@
       <div class="p-3 mx-2" style="margin-top:65px;float:left;width:75%;background-color: blanchedalmond;">
         <!--  個人推薦  -->
         <% if (user) { %>
-          <% if (good_details.length > 0) { %> <% for (let i = 0; i < good_details.length; i++) { %>
           <div class="p-2"> 
+            <% if (good_details.length > 0) { %>
             <h5>為您推薦</h5>
             <!-- 範例 -->
+             <% for (let i = 0; i < good_details.length; i++) { %>
             <div class="p-2 my-3" style="background-color:lightblue;width:200px;height:250px;">
-              <img src="/" alt="" style="background-color:lightyellow;width: 120px;height:150px;margin-left: auto;margin-right: auto;">
+              <img src="" alt="" style="background-color:lightyellow;width: 120px;height:150px;margin-left: auto;margin-right: auto;">
               <p>
                 <span><%= good_details[i].name %></span><br>
                 <span style="color:gray;"><%= good_details[i].description %></span>
                 <!--
                   <span style="color:gray;float: right;">$399</span>
                 -->
-                <br><span style="color:gray;">喜歡<img src="./src/like-1.png" alt="喜歡" style="width: 20px;margin: 2px;"></span>
-                <span style="color:gray;">加入購物車 <img src="./src/add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span>
+                <br><span style="color:gray;">喜歡<img src="like-1.png" alt="喜歡" style="width: 20px;margin: 2px;"></span>
+                <span style="color:gray;">加入購物車 <img src="add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span>
               </p>
             </div>
+            <% } %> 
           </div>
-          <% } %> <% } %>
+          <% } %>
         <% } %>
         <!--  熱門推薦  -->
         <div class="p-2">
           <h5>熱門商品</h5>
           <!-- 範例 -->
           <div class="p-2 my-3" style="background-color:lightblue;width:200px;height:250px;">
-            <img src="/" alt="" style="background-color:lightyellow;width: 120px;height:150px;margin-left: auto;margin-right: auto;">
+            <img src="" alt="" style="background-color:lightyellow;width: 120px;height:150px;margin-left: auto;margin-right: auto;">
             <p>
               <span>橫條紋襯衫</span><br>
               <span style="color:gray;">藍</span>
               <span style="color:gray;float: right;">$399</span>
-              <br><span style="color:gray;">喜歡<img src="./src/like-1.png" alt="喜歡" style="width: 20px;margin: 2px;"></span>
-              <span style="color:gray;">加入購物車 <img src="./src/add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span>
+              <br><span style="color:gray;">喜歡<img src="like-1.png" alt="喜歡" style="width: 20px;margin: 2px;"></span>
+              <span style="color:gray;">加入購物車 <img src="add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span>
             </p>
           </div>
         </div>
