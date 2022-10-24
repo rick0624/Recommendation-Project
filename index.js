@@ -9,6 +9,8 @@ require("./config/passport");
 const passport = require("passport");
 const session = require("express-session");
 const flash = require("connect-flash");
+const Recommendation = require("./models/recommendation-model");
+const Good_Detail = require("./models/good_detail-model");
 
 mongoose.connect(
     process.env.DB_CONNECT,
@@ -43,9 +45,46 @@ app.use((req, res, next) => {
 app.use("/auth", authRoute);
 app.use("/profile", profileRoute);
 
-app.get("/", (req, res) => {
-    res.render("index", { user: req.user });
+const authCheck = (req, res, next) => {
+    if(!req.isAuthenticated()){
+        req.session.returnTo = req.originalUrl;
+        res.redirect("/auth/login");
+    }else{
+        next();
+    }
+};
+
+// app.get("/", authCheck, async (req, res) => {
+//     let recommedationFound = await Recommendation.find({ buyer: req.user._id});
+//     let good_detail_array = [];
+//     for(let i=0; i<recommedationFound.length; i++){
+//         let good_detailFound = await Good_Detail.find({good_id : recommedationFound[i].good});
+//         good_detail_array.push(good_detailFound[0]);
+//     }
+//     console.log(good_detail_array)
+//     res.render("index", { user: req.user, good_details : good_detail_array });
+// });
+
+app.get("/", async (req, res) => {
+    if(!req.isAuthenticated()){
+        let good_detail_array = [];
+        res.render("index", { user: req.user, good_details : good_detail_array });
+    }else{
+        let recommedationFound = await Recommendation.find({ buyer: req.user._id});
+        let good_detail_array = [];
+        for(let i=0; i<recommedationFound.length; i++){
+            let good_detailFound = await Good_Detail.find({good_id : recommedationFound[i].good});
+            good_detail_array.push(good_detailFound[0]);
+        }
+        console.log(good_detail_array)
+        res.render("index", { user: req.user, good_details : good_detail_array });
+    }
 });
+
+// app.get("/", (req, res) => {
+
+//     res.render("index", { user: req.user });
+// });
 
 app.listen(8080, () => {
     console.log("Server running on port 8080.")
