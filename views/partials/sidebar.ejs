@@ -1,130 +1,203 @@
 <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;margin-top:65px;float: left;">
-    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-      <span class="fs-5 fw-semibold">  Menu</span>
-    </a>
-    <ul class="list-unstyled ps-0">
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-          Home
-        </button>
-        <div class="collapse" id="home-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Updates</a></li>
-            <li><a href="#" class="link-dark rounded">Reports</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          熱門
-        </button>
-        <div class="collapse" id="dashboard-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark rounded">Annually</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-          上身
-        </button>
-        <div class="collapse" id="orders-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">New</a></li>
-            <li><a href="#" class="link-dark rounded">Processed</a></li>
-            <li><a href="#" class="link-dark rounded">Shipped</a></li>
-            <li><a href="#" class="link-dark rounded">Returned</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#test2-collapse" aria-expanded="false">
-          下身
-        </button>
-        <div class="collapse" id="test2-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark rounded">Annually</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#test3-collapse" aria-expanded="false">
-          配件
-        </button>
-        <div class="collapse" id="test3-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark rounded">Annually</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#test4-collapse" aria-expanded="false">
-          其他
-        </button>
-        <div class="collapse" id="test4-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark rounded">Annually</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="border-top my-3"></li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#test5-collapse" aria-expanded="false">
-          按顏色分類
-        </button>
-        <div class="collapse" id="test5-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark rounded">Annually</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#test5-collapse" aria-expanded="false">
-          按類別分類
-        </button>
-        <div class="collapse" id="test5-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark rounded">Annually</a></li>
-          </ul>
-        </div>
-      </li>
-      <% if (user) { %>
-      <li class="border-top my-3"></li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-            <div>
-                <img class="mx-2" src="<%= user.thumbnail %>" alt="user" style="width: 25px;">
-                <span style="margin: auto;"><%= user.name %></span>  
-            </div>     
-        </button>
-        <div class="collapse" id="account-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">New...</a></li>
-            <li><a href="#" class="link-dark rounded">Profile</a></li>
-            <li><a href="#" class="link-dark rounded">Settings</a></li>
-            <li><a href="#" class="link-dark rounded">Sign out</a></li>
-          </ul>
-        </div>
-      </li>
-      <% } %>  
-    </ul>
-  </div>
+  <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+    <span class="fs-5 fw-semibold">  Menu</span>
+  </a>
+  <ul class="list-unstyled ps-0">
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+        Home
+      </button>
+      <div class="collapse" id="home-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="#" class="link-dark rounded">熱門商品</a></li>
+          <li><a href="#" class="link-dark rounded">最新商品</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+        商品分類
+      </button>
+      <div class="collapse px-2" id="dashboard-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="#" class="link-dark rounded">Overview</a></li>
+          <li><a href="#" class="link-dark rounded">Accessories</a></li>
+          <li><a href="#" class="link-dark rounded">Blouses</a></li>
+          <li><a href="#" class="link-dark rounded">Dressed</a></li>
+          <li><a href="#" class="link-dark rounded">Dresses Ladies</a></li>
+          <li><a href="#" class="link-dark rounded">Dresses/Skirts girls</a></li>
+          <li><a href="#" class="link-dark rounded">Jersey Basic</a></li>
+          <li><a href="#" class="link-dark rounded">Jersey Fancy</a></li>
+          <li><a href="#" class="link-dark rounded">Knitwear</a></li>
+          <li><a href="#" class="link-dark rounded">Outdoor</a></li>
+          <li><a href="#" class="link-dark rounded">Knitwear</a></li>
+          <li><a href="#" class="link-dark rounded">Shirts</a></li>
+          <li><a href="#" class="link-dark rounded">Shoes</a></li>
+          <li><a href="#" class="link-dark rounded">Shorts</a></li>
+          <li><a href="#" class="link-dark rounded">Skirts</a></li>
+          <li><a href="#" class="link-dark rounded">Socks and Tights</a></li>
+          <li><a href="#" class="link-dark rounded">Special Offers</a></li>
+          <li><a href="#" class="link-dark rounded">Swimwear</a></li>
+          <li><a href="#" class="link-dark rounded">Trousers</a></li>
+          <li><a href="#" class="link-dark rounded">Under-, Nightwear</a></li>
+          <li><a href="#" class="link-dark rounded">Woven/Jersey/Knitted mix Baby</a></li>
+          <li><a href="#" class="link-dark rounded">Unknown</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+        衣服分類
+      </button>
+      <div class="collapse" id="orders-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="#" class="link-dark rounded">Baby/Children</a></li>
+          <li><a href="#" class="link-dark rounded">Divided</a></li>
+          <li><a href="#" class="link-dark rounded">Ladieswear</a></li>
+          <li><a href="#" class="link-dark rounded">Menswear</a></li>
+          <li><a href="#" class="link-dark rounded">Sport</a></li>
+        </ul>
+      </div>
+    </li>
+    
+    <li class="border-top my-3"></li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#test5-collapse" aria-expanded="false">
+        按顏色分類
+      </button>
+      <div class="collapse" id="test5-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(245,245,220)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Beige</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(255,140,105)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Pink</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(255, 77, 0)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Red</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(255, 165, 0)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Orange</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(255, 215, 0)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Gold</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(255, 255, 0)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Yellow</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(0, 255, 0)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Green</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(0, 127, 255)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Blue</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(0, 127, 255)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Turquoise</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(0, 71, 171)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Dark Blue</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(139, 0, 255)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Purple</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="white" />
+            </svg>
+            <a href="#" class="link-dark rounded">White</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="black" />
+            </svg>
+            <a href="#" class="link-dark rounded">Black</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(161,107,71)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Brown</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(184, 115, 51)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Bronze/Copper</a>
+          </li>
+          <li>
+            <svg width="20" height="20">
+              <circle cx="10" cy="10" r="8" fill="rgb(192,192,192)" />
+            </svg>
+            <a href="#" class="link-dark rounded">Silver</a>
+          </li>
+
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#test6-collapse" aria-expanded="false">
+        按類別分類
+      </button>
+      <div class="collapse" id="test6-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="#" class="link-dark rounded">上身</a></li>
+          <li><a href="#" class="link-dark rounded">下身</a></li>
+          <li><a href="#" class="link-dark rounded">鞋子</a></li>
+          <li><a href="#" class="link-dark rounded">配件</a></li>
+        </ul>
+      </div>
+    </li>
+    <% if (user) { %>
+    <li class="border-top my-3"></li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          <div>
+              <img class="mx-2" src="<%= user.thumbnail %>" alt="user" style="width: 25px;">
+              <span style="margin: auto;"><%= user.name %></span>  
+          </div>     
+      </button>
+      <div class="collapse" id="account-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="#" class="link-dark rounded">New...</a></li>
+          <li><a href="#" class="link-dark rounded">Profile</a></li>
+          <li><a href="#" class="link-dark rounded">Settings</a></li>
+          <li><a href="#" class="link-dark rounded">Sign out</a></li>
+        </ul>
+      </div>
+    </li>
+    <% } %>  
+  </ul>
+</div>
