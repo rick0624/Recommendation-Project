@@ -17,6 +17,14 @@ const goodDetailSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    color: {
+        type: String,
+        required: true,
+    },
+    classify: {
+        type: String,
+        required: true,
+    }
 });
 
 module.exports = mongoose.model("Good_Detail", goodDetailSchema);

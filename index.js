@@ -77,9 +77,19 @@ app.get("/", async (req, res) => {
             let good_detailFound = await Good_Detail.find({good_id : recommedationFound[i].good});
             good_detail_array.push(good_detailFound[0]);
         }
-        console.log(good_detail_array)
+        // console.log(good_detail_array)
         res.render("index", { user: req.user, good_details : good_detail_array });
     }
+});
+
+app.get("/product_detail/:id", async (req, res) => {
+    console.log("-----------------------------------");
+    const product_id = req.params.id;
+    console.log(product_id);
+    let good_detailFound = await Good_Detail.find({good_id : product_id});
+    console.log(good_detailFound);
+    console.log(req.user);
+    res.render("product", {user: req.user, good_details : good_detailFound});
 });
 
 // app.get("/", (req, res) => {

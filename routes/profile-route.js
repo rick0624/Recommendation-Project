@@ -2,6 +2,7 @@ const router = require("express").Router()
 const Post = require("../models/post-model");
 const Recommendation = require("../models/recommendation-model");
 const Good_Detail = require("../models/good_detail-model");
+const Association_Rules = require("../models/association_rules-model");
 
 const authCheck = (req, res, next) => {
     if(!req.isAuthenticated()){
@@ -46,24 +47,39 @@ router.get("/post", authCheck, (req, res) => {
 //     }
 // });
 
+// router.get("/recommendation", authCheck, async (req, res) => {
+//     // console.log("aaa");
+//     item_A = "ID1";
+//     item_B = "ID2";
+//     lift = 4.5;
+//     let associationRules = new Association_Rules({item_A, item_B, lift});
+//     try{
+//         await associationRules.save();
+//         res.status(200).redirect("/");
+//     } catch(err){
+//         req.flash("error_msg", "Goods are required.");
+//         res.redirect("/");
+//     }
+// });
+
 router.get("/recommendation", authCheck, async (req, res) => {
     // console.log("aaa");
-    name = "coat"
-    good_id = "test_id";
-    description = "This is best cloth.";
-    image = "https://example.com/media/photo.jpg"
-    let goodDetail = new Good_Detail({name, good_id, description, image});
+    item_A = "ID1";
+    item_B = "ID2";
+    lift = 4.5;
+    let associationRules = new Association_Rules({Item_A : item_A, Item_B : item_B, lift : lift});
     try{
-        await goodDetail.save();
-        res.status(200).redirect("/profile");
+        await associationRules.save();
+        res.status(200).redirect("/");
     } catch(err){
         req.flash("error_msg", "Goods are required.");
-        res.redirect("/profile");
+        res.redirect("/");
     }
 });
 
 router.post("/post", authCheck, async (req, res) => {
-    let {title, content} = req.body;
+    title = "fff";
+    content = "This is a test.";
     let newPost = new Post({title, content, author: req.user._id});
     try{
         await newPost.save();
