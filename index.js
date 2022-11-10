@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const authRoute = require("./routes/auth-route");
 const profileRoute = require("./routes/profile-route");
+const classifyRoute = require("./routes/classify-route");
 require("./config/passport");
 const passport = require("passport");
 const session = require("express-session");
@@ -45,6 +46,7 @@ app.use((req, res, next) => {
 app.use( express.static( "src"));
 app.use("/auth", authRoute);
 app.use("/profile", profileRoute);
+app.use("/classify", classifyRoute);
 
 const authCheck = (req, res, next) => {
     if(!req.isAuthenticated()){
