@@ -9,13 +9,13 @@ router.get("/type/:type", async (req, res) => {
     let good_detailFound = await Good_Detail.find({classify : product_type});
     // console.log(good_detailFound);
     // console.log(req.user);
-    res.render("classify", {user: req.user, good_details : good_detailFound});
+    res.render("classify", {user: req.user, good_details : good_detailFound,type:product_type});
 });
 
 router.get("/color/:color", async (req, res) => {
     const product_color = req.params.color;
     let good_detailFound = await Good_Detail.find({color : product_color});
-    res.render("color", {user: req.user, good_details : good_detailFound});
+    res.render("color", {user: req.user, good_details : good_detailFound,color:product_color});
 })
 
 
