@@ -19,11 +19,11 @@
           <!-- 範例 -->
            <% for (let i = 0; i < good_details.length; i++) { %>
             <div class="mx-3 my-3" style="background-color:lightblue;width:200px;height:360px;display: inline-block">
-              <a href="/product_detail/<%= good_details[i].good_id %>">
+              <a href="/product_detail/<%= good_details[i].good_id %>" style="color:black;">
                 <img class="product" src="<%= good_details[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
               </a>
               <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
-                <span style="color: black;"><a href="/product_detail/<%= good_details[i].good_id %>"><%= good_details[i].name %></a></span>
+                <span style="color: black;"><%= good_details[i].name %></span>
               </div>
               <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
                 <span style="color:gray;"><%= good_details[i].description %></span>
