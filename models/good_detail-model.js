@@ -27,11 +27,7 @@ const goodDetailSchema = new mongoose.Schema({
     },
     people: {
         type: String,
-<<<<<<< HEAD
-        require: true,
-=======
         required: true,
->>>>>>> e2414e52a35ead03d21c11dd1a26fb865b85de4a
     }
 });
 

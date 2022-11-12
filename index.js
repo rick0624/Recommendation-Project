@@ -12,6 +12,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const Recommendation = require("./models/recommendation-model");
 const Good_Detail = require("./models/good_detail-model");
+const Association_Rules = require("./models/association_rules-model");
 
 mongoose.connect(
     process.env.DB_CONNECT,
@@ -87,13 +88,17 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/product_detail/:id", async (req, res) => {
-    console.log("-----------------------------------");
+    // console.log("-----------------------------------");
     const product_id = req.params.id;
-    console.log(product_id);
+    // console.log(product_id);
     let good_detailFound = await Good_Detail.find({good_id : product_id});
-    console.log(good_detailFound);
-    console.log(req.user);
-    res.render("product", {user: req.user, good_details : good_detailFound});
+    let associationFound = await Association_Rules.find({Item_A : product_id});
+    let association_good_array = [];
+    for(let i=0; i<associationFound.length; i++){
+        let good_Found = await Good_Detail.find({good_id : associationFound[i].Item_B});
+        association_good_array.push(good_Found[0]);
+    }
+    res.render("product", {user: req.user, good_details : good_detailFound, association_goods : association_good_array});
 });
 
 // app.get("/", (req, res) => {
