@@ -24,6 +24,10 @@ const goodDetailSchema = new mongoose.Schema({
     classify: {
         type: String,
         required: true,
+    },
+    people: {
+        type: String,
+        require: true,
     }
 });
 

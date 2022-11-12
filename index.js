@@ -70,7 +70,9 @@ const authCheck = (req, res, next) => {
 
 app.get("/", async (req, res) => {
     if(!req.isAuthenticated()){
-        let good_detail_array = [];
+        console.log("hi");
+        let good_detail_array = await Good_Detail.find({});
+        // console.log(good_detail_array)
         res.render("index", { user: req.user, good_details : good_detail_array });
     }else{
         let recommedationFound = await Recommendation.find({ buyer: req.user._id});
@@ -79,7 +81,7 @@ app.get("/", async (req, res) => {
             let good_detailFound = await Good_Detail.find({good_id : recommedationFound[i].good});
             good_detail_array.push(good_detailFound[0]);
         }
-        // console.log(good_detail_array)
+        
         res.render("index", { user: req.user, good_details : good_detail_array });
     }
 });

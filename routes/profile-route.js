@@ -23,9 +23,9 @@ router.get("/", authCheck, async (req, res) => {
         let good_detailFound = await Good_Detail.find({good_id : recommedationFound[i].good});
         good_detail_array.push(good_detailFound[0]);
     }
-    console.log(postFound.length);
-    console.log(recommedationFound.length);
-    console.log(good_detail_array)
+    // console.log(postFound.length);
+    // console.log(recommedationFound.length);
+    // console.log(good_detail_array)
     res.render("profile", { user: req.user, posts: postFound, recommendations: recommedationFound, good_details : good_detail_array });
 });
 
@@ -62,7 +62,26 @@ router.get("/post", authCheck, (req, res) => {
 //     }
 // });
 
-router.get("/recommendation", authCheck, async (req, res) => {
+router.get("/goodDetail", authCheck, async (req, res) => {
+    // console.log("aaa");
+    name = "test_name";
+    good_id = "test_id";
+    description = "test_description";
+    image = "test_img";
+    color = "test_color";
+    classify = "test_classify";
+    people = "test_people";
+    let goodDetail = new Good_Detail({name:name, good_id:good_id, description: description, image:image, color:color, classify:classify, people:people});
+    try{
+        await goodDetail.save();
+        res.status(200).redirect("/");
+    } catch(err){
+        req.flash("error_msg", "Goods are required.");
+        res.redirect("/");
+    }
+});
+
+router.get("/association", authCheck, async (req, res) => {
     // console.log("aaa");
     item_A = "ID1";
     item_B = "ID2";
