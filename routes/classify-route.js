@@ -6,8 +6,17 @@ const Recommendation = require("../models/recommendation-model");
 
 router.get("/type/:type", async (req, res) => {
     console.log("-----------------------------------");
-    const product_type = req.params.type;
+    let product_type = req.params.type
+    if (product_type == 'Dresses Skirts girls'){
+        product_type = 'Dresses/Skirts girls'
+    }
+    if (product_type == 'Woven Jersey Knitted mix Baby'){
+        product_type = 'Woven/Jersey/Knitted mix Baby'
+    }
     let good_detailFound = await Good_Detail.find({classify : product_type});
+    if (product_type == 'Overview'){
+        good_detailFound = await Good_Detail.find({});
+    }
     let recommendation_array = []
     if(req.user){
         let recommedationFound = await Recommendation.find({ buyer: req.user._id});
