@@ -39,17 +39,17 @@
         <!--  個人推薦  -->
         <% if (user) { %>
           <div class="p-2"> 
-            <% if (good_details.length > 0) { %>
+            <% if (recommendation_goods.length > 0) { %>
             <div class="mx-3"><h5>為您推薦</h5></div>
             <!-- 範例 -->
-             <% for (let i = 0; i < good_details.length; i++) { %>
-            <div class="mx-3 my-3" style="background-color:lightblue;width:200px;height:360px;display: inline-block" onclick="location.href='/product_detail/<%= good_details[i].good_id %>';">
-              <img src="<%= good_details[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
+             <% for (let i = 0; i < recommendation_goods.length; i++) { %>
+            <div class="mx-3 my-3" style="background-color:lightblue;width:200px;height:360px;display: inline-block" onclick="location.href='/product_detail/<%= recommendation_goods[i].good_id %>';">
+              <img src="<%= recommendation_goods[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
               <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
-                <span style="color: black;"><a href="/product_detail/<%= good_details[i].good_id %>"><%= good_details[i].name %></a></span>
+                <span style="color: black;"><a href="/product_detail/<%= recommendation_goods[i].good_id %>"><%= recommendation_goods[i].name %></a></span>
               </div>
               <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
-                <span style="color:gray;"><%= good_details[i].description %></span>
+                <span style="color:gray;"><%= recommendation_goods[i].description %></span>
               </div>
               <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
                 <span style="color:gray;">$399</span>
