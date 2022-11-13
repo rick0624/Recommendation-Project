@@ -24,9 +24,26 @@ router.get("/type/:type", async (req, res) => {
             let good_Found = await Good_Detail.find({good_id : recommedationFound[i].good});
             recommendation_array.push(good_Found[0]);
         }
-    }
-    
+    }    
     res.render("classify", {user: req.user, good_details : good_detailFound, type:product_type, recommendation_goods : recommendation_array});
+});
+
+router.get("/wear/:type", async (req, res) => {
+    console.log("-----------------------------------");
+    let people_type = req.params.type
+    if (people_type == 'BabyChildren'){
+        people_type = 'Baby/Children'
+    }
+    let good_detailFound = await Good_Detail.find({people : people_type});
+    let recommendation_array = []
+    if(req.user){
+        let recommedationFound = await Recommendation.find({ buyer: req.user._id});
+        for(let i=0; i<recommedationFound.length; i++){
+            let good_Found = await Good_Detail.find({good_id : recommedationFound[i].good});
+            recommendation_array.push(good_Found[0]);
+        }
+    }    
+    res.render("classify", {user: req.user, good_details : good_detailFound, type:people_type, recommendation_goods : recommendation_array});
 });
 
 router.get("/color/:color", async (req, res) => {

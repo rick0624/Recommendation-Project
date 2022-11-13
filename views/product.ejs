@@ -13,11 +13,11 @@
       <div class="p-3 mx-2" style="margin-top:65px;float:left;width:75%;background-color: blanchedalmond;">
         <!--  商品  -->
         <% if (good_details.length > 0) { %>
-        <div class="row p-2">
+        <div class="p-2">
             <!-- 範例 -->
             <% for (let i = 0; i < good_details.length; i++) { %>
             <div class="p-2 my-3" style="background-color:lightblue;width: 80%;">
-              <img src="<%= good_details[i].image %>" alt="" style="background-color:lightyellow;width: 300px;height:400px;margin-left: auto;margin-right: auto;">
+              <img src="<%= good_details[i].image %>" alt="image" style="background-color:lightyellow;width: 300px;height:400px;margin-left: auto;margin-right: auto;">
               <div class="px-2" style="float: right;width: 55%;">
                 <h3><%= good_details[i].name %></h3>
                 <p style="color: gray;"><%= good_details[i].classify %> | <%= good_details[i].people %> | <%= good_details[i].color %></p>
@@ -36,29 +36,30 @@
             <% } %>
         </div>
         <% } %>
-        <!--  關聯推薦  -->
-        <h5>其他人都在買</h5>
-        <% if (association_goods.length > 0) { %>
-          <div class="row p-2">
+        <!--  關聯推薦  -->        
+          <div class="p-2">
+            <div class="mx-3"><h5>熱門商品</h5></div>
+            <% if (association_goods.length > 0) { %>
               <!-- 範例 -->
               <% for (let i = 0; i < association_goods.length; i++) { %>
-              <div class="p-2 my-3" style="background-color:lightblue;width: 80%;">
-                <img src="<%= association_goods[i].image %>" alt="" style="background-color:lightyellow;width: 300px;height:400px;margin-left: auto;margin-right: auto;">
-                <div class="px-2" style="float: right;width: 55%;">
-                  <h3><%= association_goods[i].name %></h3>
-                  <p style="color: gray;"><%= association_goods[i].classify %> | <%= association_goods[i].people %> | <%= association_goods[i].color %></p>
-                  <hr>
-                  <p><%= association_goods[i].description %></p>
-                  <p>$100</p>
-                  <input type="button" value="-" id="del" onclick="del()"/>
-                  <span id="quantity">1</span>
-                  <input type="button" value="+" id="add" onclick="add()"/>
-                  <p>
-                      <span style="color:gray;">喜歡</span>
-                      <span style="color:gray;">加入購物車</span>
-                  </p>
+                <div class="mx-3 my-3" style="background-color:lightblue;width:200px;height:360px;display: inline-block">
+                  <a href="/product_detail/<%= association_goods[i].good_id %>" style="color:black;">
+                    <img class="product" src="<%= association_goods[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
+                  </a>
+                  <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
+                    <span style="color: black;"><%= association_goods[i].name %></span>
+                  </div>
+                  <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
+                    <span style="color:gray;"><%= association_goods[i].description %></span>
+                  </div>
+                  <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
+                    <span style="color:gray;">$399</span>
+                  </div>
+                  <div class="px-2">
+                    <span style="color:gray;">喜歡<img src="http://localhost:8080/like-1.png" alt="喜歡" style="width: 20px;margin: 2px;"></span>
+                    <span style="color:gray;">加入購物車 <img src="http://localhost:8080/add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span>
+                  </div>  
                 </div>
-              </div>
               <% } %>
           </div>
         <% } %>
