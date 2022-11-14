@@ -49,8 +49,8 @@
             <!-- 範例 -->
              <% for (let i = 0; i < recommendation_goods.length; i++) { %>
             <div class="mx-3 my-3" style="background-color:lightblue;width:200px;height:360px;display: inline-block">
-              <a href="/product_detail/<%= good_details[i].good_id %>" style="color:black;">
-                <img class="product" src="<%= good_details[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
+              <a href="/product_detail/<%= recommendation_goods[i].good_id %>" style="color:black;">
+                <img class="product" src="<%= recommendation_goods[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
               </a>
               <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
                 <span style="color: black;"><%= recommendation_goods[i].name %></span>
