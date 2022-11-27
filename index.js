@@ -13,6 +13,8 @@ const flash = require("connect-flash");
 const Recommendation = require("./models/recommendation-model");
 const Good_Detail = require("./models/good_detail-model");
 const Association_Rules = require("./models/association_rules-model");
+const Like = require("./models/like-model");
+const Shopping_Cart = require("./models/shopping_cart-model");
 
 mongoose.connect(
     process.env.DB_CONNECT,
@@ -99,6 +101,26 @@ app.get("/product_detail/:id", async (req, res) => {
         association_good_array.push(good_Found[0]);
     }
     res.render("product", {user: req.user, good_details : good_detailFound, association_goods : association_good_array});
+});
+
+app.get("/like", async (req, res) => {
+    let likeFound = await Like.find({user : req.user._id});
+    let good_detailFound = [];
+    for(let i=0; i<likeFound.length; i++){
+        let good_Found = await Good_Detail.find({good_id : likeFound[i].product});
+        good_detailFound.push(good_Found[0]);
+    }
+    res.render("like", {user: req.user, good_details : good_detailFound});
+});
+
+app.get("/shopping-cart", async (req, res) => {
+    let shoppingCartFound = await Shopping_Cart.find({user : req.user._id});
+    let good_detailFound = [];
+    for(let i=0; i<shoppingCartFound.length; i++){
+        let good_Found = await Good_Detail.find({good_id : shoppingCartFound[i].product});
+        good_detailFound.push(good_Found[0]);
+    }
+    res.render("shopping-cart", {user: req.user, good_details : good_detailFound});
 });
 
 // app.get("/", (req, res) => {

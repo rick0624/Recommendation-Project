@@ -5,7 +5,7 @@ const Good_Detail = require("../models/good_detail-model")
 const Recommendation = require("../models/recommendation-model"); 
 
 router.get("/type/:type", async (req, res) => {
-    console.log("-----------------------------------");
+    // console.log("-----------------------------------");
     let product_type = req.params.type
     if (product_type == 'Dresses Skirts girls'){
         product_type = 'Dresses/Skirts girls'
@@ -29,7 +29,7 @@ router.get("/type/:type", async (req, res) => {
 });
 
 router.get("/wear/:type", async (req, res) => {
-    console.log("-----------------------------------");
+    // console.log("-----------------------------------");
     let people_type = req.params.type
     if (people_type == 'BabyChildren'){
         people_type = 'Baby/Children'

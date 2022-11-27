@@ -33,7 +33,7 @@ router.post(
 );
 
 router.post("/signup", async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     let { name, email, password} = req.body;
     const emailExist = await User.findOne({ email });
     if (emailExist){

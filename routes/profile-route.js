@@ -3,6 +3,8 @@ const Post = require("../models/post-model");
 const Recommendation = require("../models/recommendation-model");
 const Good_Detail = require("../models/good_detail-model");
 const Association_Rules = require("../models/association_rules-model");
+const Like = require("../models/like-model");
+const Shopping_Cart = require("../models/shopping_cart-model");
 
 const authCheck = (req, res, next) => {
     if(!req.isAuthenticated()){
@@ -89,6 +91,33 @@ router.get("/association", authCheck, async (req, res) => {
     let associationRules = new Association_Rules({Item_A : item_A, Item_B : item_B, lift : lift});
     try{
         await associationRules.save();
+        res.status(200).redirect("/");
+    } catch(err){
+        req.flash("error_msg", "Goods are required.");
+        res.redirect("/");
+    }
+});
+
+router.get("/like", authCheck, async (req, res) => {
+    // console.log("aaa");
+    user = "testUser";
+    product = "testProduct";
+    let like = new Like({user : user, product : product});
+    try{
+        await like.save();
+        res.status(200).redirect("/");
+    } catch(err){
+        req.flash("error_msg", "Goods are required.");
+        res.redirect("/");
+    }
+});
+
+router.get("/shopping", authCheck, async (req, res) => {
+    user = "testUser";
+    product = "testProduct";
+    let shopping_cart = new Shopping_Cart({user : user, product : product});
+    try{
+        await shopping_cart.save();
         res.status(200).redirect("/");
     } catch(err){
         req.flash("error_msg", "Goods are required.");
