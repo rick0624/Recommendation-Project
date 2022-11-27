@@ -14,30 +14,40 @@
         <!--  個人推薦  -->
         <% if (user) { %>
           <div class="p-2"> 
+            <div class="mx-3"><h5>您喜歡的商品</h5></div>
             <% if (good_details.length > 0) { %>
-            <div class="mx-3"><h5>為您推薦</h5></div>
             <!-- 範例 -->
-             <% for (let i = 0; i < good_details.length; i++) { %>
-            <div class="mx-3 my-3" style="background-color:lightblue;width:200px;height:360px;display: inline-block" >
-              <a href="/product_detail/<%= good_details[i].good_id %>" style="color:black;">
-                <img class="product" src="<%= good_details[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
-              </a>
-              <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
-                <span style="color: black;"><%= good_details[i].name %></span>
+            <% for (let i = 0; i < good_details.length; i++) { %>
+              <!-- 範例 -->
+              <div class="p-2 mx-3 my-3" style="background-color:lightblue;width: 500px;height:280px;">
+                <a href="/product_detail/<%= good_details[i].good_id %>" style="color:black;">
+                  <img class="product" src="<%= good_details[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:200px;height:250px;">
+                </a>
+                <div class="p-2" style="background-color: thistle;width: 265px;float: right;">
+                  <div class="px-2 my-2" style="width:235px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
+                    <span style="color: black;"><%= good_details[i].name %></span>
+                  </div>
+                  <div class="px-2 my-2" style="width:235px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
+                    <span style="color:gray;"><%= good_details[i].color %></span>
+                  </div>
+                  <div class="px-2 my-2" style="width:235px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
+                    <span style="color:gray;"><%= good_details[i].classify %> | <%= good_details[i].people %></span>
+                  </div>
+                  <div class="px-2 my-2" style="width:235px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
+                    <span style="color:gray;"><%= good_details[i].description %></span>
+                  </div>
+                  <div class="px-2 my-2" style="width:235px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
+                    <span style="color:gray;">$399</span>
+                  </div>
+                  <div class="px-2 my-3" >
+                    <button type="button" class="btn btn-outline-dark btn-lg" style="width: 235px;">移除喜歡</button>
+                  </div>
+                </div>
               </div>
-              <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
-                <span style="color:gray;"><%= good_details[i].description %></span>
-              </div>
-              <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
-                <span style="color:gray;">$399</span>
-              </div>
-              <div class="px-2">
-                <span style="color:gray;">喜歡<img src="like-1.png" alt="喜歡" style="width: 20px;margin: 2px;"></span>
-                <span style="color:gray;">加入購物車 <img src="add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span>
-              </div>  
-            </div>
             <% } %> 
-            <% } %>
+            <% } else { %>
+              <div class="mx-3 my-3"><h5 style="color:gray;">目前暫無您喜歡的商品....</h5></div>
+            <% } %> 
           </div>
         <% } %>
         <% if (!user) { %>
