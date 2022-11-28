@@ -16,6 +16,10 @@ router.get("/like/:product_id", async (req, res) => {
             res.redirect(req.session.returnTo);
         }
     }
+    else{
+        req.flash("error_msg", "This product has already been liked.");
+        res.redirect(req.session.returnTo);
+    }
 });
 
 router.get("/shopping-cart/:product_id", async (req, res) => {
@@ -30,6 +34,10 @@ router.get("/shopping-cart/:product_id", async (req, res) => {
         } catch(err){
             res.redirect(req.session.returnTo);
         }
+    }
+    else{
+        req.flash("error_msg", "This product has already been added to shopping cart.");
+        res.redirect(req.session.returnTo);
     }
 });
 
