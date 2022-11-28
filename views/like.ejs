@@ -23,7 +23,7 @@
                 <a href="/product_detail/<%= good_details[i].good_id %>" style="color:black;">
                   <img class="product" src="<%= good_details[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:200px;height:250px;">
                 </a>
-                <div class="p-2" style="background-color: thistle;width: 265px;float: right;">
+                <div class="p-2" style="width: 265px;float: right;">
                   <div class="px-2 my-2" style="width:235px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
                     <span style="color: black;"><%= good_details[i].name %></span>
                   </div>
@@ -71,9 +71,9 @@
                 <span style="color:gray;">$399</span>
               </div>
               <div class="px-2">
-                <span style="color:gray;">喜歡<img src="like-1.png" alt="喜歡" style="width: 20px;margin: 2px;"></span>
-                <span style="color:gray;">加入購物車 <img src="add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span>
-              </div>  
+                <a href="/adding/like/<%= good_details[i].good_id %>" style="text-decoration:none"><span style="color:gray;">喜歡<img src="http://localhost:8080/like-1.png" alt="喜歡" style="width: 20px;margin: 2px;"></span></a>
+                <a href="/adding/shopping-cart/<%= good_details[i].good_id %>" style="text-decoration:none"><span style="color:gray;">加入購物車 <img src="http://localhost:8080/add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span></a>
+              </div> 
             </div>
             <% } %> 
             <% } %>

@@ -21,28 +21,36 @@
               <div class="px-2" style="float: right;width: 55%;">
                 <div>
                   <h3><%= good_details[i].name %></h3>
-                  <p style="color: gray;"><%= good_details[i].classify %> | <%= good_details[i].people %> | <%= good_details[i].color %></p>
+                  <p style="color: gray;font-size: 20px;"><%= good_details[i].classify %> | <%= good_details[i].people %> | <%= good_details[i].color %></p>
                 </div>
                 <hr>
                 <div class="py-2">
                   <p style="font-size: 20px;"><%= good_details[i].description %></p>
                 </div>
                 <div class="py-2">
-                  <h5>$100</h5>
+                  <h4>$100</h4>
                 </div>
-                <div>  
-                  <h5 style="color:gray;">
-                    <a href="/adding/like/<%= good_details[i].good_id %>">
-                      <img src="http://localhost:8080/like-1.png" alt="喜歡" style="width:25px;margin: 2px;">
-                      <span class="px-2">喜歡</span>
-                    </a>
-                  </h5>
-                </div>
-                <div>  
-                  <h5 style="color:gray;">
-                    <a href="/adding/shopping-cart/<%= good_details[i].good_id %>"><img src="http://localhost:8080/add-to-cart.png" alt="加入購物車" style="width:25px;margin: 2px;">
-                      <span class="px-2">加入購物車</span></a>
-                  </h5>
+                <div class="my-3">  
+                  <div class="px-1" style="display: inline-block">
+                    <h4>
+                      <a href="/adding/like/<%= good_details[i].good_id %>" style="text-decoration:none">
+                        <button type="button" class="btn btn-outline-dark btn-lg" style="width:180px;">
+                        <img src="http://localhost:8080/like-1.png" alt="喜歡" style="width:25px;margin: 2px;">
+                        <span class="px-2">喜歡</span>
+                      </button>
+                      </a>
+                    </h4>
+                  </div>
+                  <div class="px-2" style="display: inline-block">
+                    <h4>
+                      <a href="/adding/shopping-cart/<%= good_details[i].good_id %>" style="text-decoration:none">
+                        <button type="button" class="btn btn-outline-dark btn-lg" style="width:200px;">
+                        <img src="http://localhost:8080/add-to-cart.png" alt="加入購物車" style="width:25px;margin: 2px;">
+                        <span class="px-2">加入購物車</span>
+                        </button>
+                      </a>
+                    </h4>
+                  </div>
                 </div>
               </div>
             </div>
@@ -69,9 +77,9 @@
                     <span style="color:gray;">$399</span>
                   </div>
                   <div class="px-2">
-                    <span style="color:gray;">喜歡<img src="http://localhost:8080/like-1.png" alt="喜歡" style="width: 20px;margin: 2px;"></span>
-                    <span style="color:gray;">加入購物車 <img src="http://localhost:8080/add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span>
-                  </div>  
+                    <a href="/adding/like/<%= good_details[i].good_id %>" style="text-decoration:none"><span style="color:gray;">喜歡<img src="http://localhost:8080/like-1.png" alt="喜歡" style="width: 20px;margin: 2px;"></span></a>
+                    <a href="/adding/shopping-cart/<%= good_details[i].good_id %>" style="text-decoration:none"><span style="color:gray;">加入購物車 <img src="http://localhost:8080/add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span></a>
+                  </div>   
                 </div>
               <% } %>
           </div>
