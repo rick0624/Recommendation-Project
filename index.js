@@ -6,6 +6,8 @@ dotenv.config();
 const authRoute = require("./routes/auth-route");
 const profileRoute = require("./routes/profile-route");
 const classifyRoute = require("./routes/classify-route");
+const addingRoute = require("./routes/adding-route");
+const deletingRoute = require("./routes/deleting-route");
 require("./config/passport");
 const passport = require("passport");
 const session = require("express-session");
@@ -50,6 +52,9 @@ app.use( express.static( "src"));
 app.use("/auth", authRoute);
 app.use("/profile", profileRoute);
 app.use("/classify", classifyRoute);
+app.use("/adding", addingRoute);
+app.use("/deleting", deletingRoute);
+
 
 const authCheck = (req, res, next) => {
     if(!req.isAuthenticated()){
@@ -72,8 +77,11 @@ const authCheck = (req, res, next) => {
 // });
 
 app.get("/", async (req, res) => {
+    // console.log("--------ff---------");
+    // console.log(req.originalUrl);
+    req.session.returnTo = req.originalUrl;
     if(!req.isAuthenticated()){
-        console.log("hi");
+        // console.log("hi");
         let good_detail_array = await Good_Detail.find({});
         // console.log(good_detail_array)
         res.render("index", { user: req.user, good_details : good_detail_array });
@@ -90,7 +98,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/product_detail/:id", async (req, res) => {
-    // console.log("-----------------------------------");
+    req.session.returnTo = req.originalUrl;
     const product_id = req.params.id;
     // console.log(product_id);
     let good_detailFound = await Good_Detail.find({good_id : product_id});

@@ -5,20 +5,20 @@ const LocalStrategy = require("passport-local");
 const bcrypt = require("bcrypt");
 
 passport.serializeUser((user, done) => {
-    console.log("Serializing user now");
+    // console.log("Serializing user now");
     done(null, user._id);
 });
 
 passport.deserializeUser((_id, done) => {
-    console.log("Deserializing user now");
+    // console.log("Deserializing user now");
     User.findById({ _id }).then((user) => {
-        console.log("Found user.");
+        // console.log("Found user.");
         done(null, user);
     });
 });
 
 passport.use(new LocalStrategy( (username, password, done) => {
-    console.log(username, password);
+    // console.log(username, password);
     User.findOne({ email: username}).then(async (user) => {
         if(!user){
             return done(null, false);
@@ -43,7 +43,7 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLINET_SECRET,
     callbackURL: "/auth/google/redirect",
 },(accessToken, refreshToken, profile, done) => {
-    console.log(profile);
+    // console.log(profile);
     User.findOne({ googleID: profile.id}).then((foundUser) => {
         if(foundUser) {
             console.log("User already exist");

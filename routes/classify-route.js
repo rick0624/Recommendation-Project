@@ -5,7 +5,7 @@ const Good_Detail = require("../models/good_detail-model")
 const Recommendation = require("../models/recommendation-model"); 
 
 router.get("/type/:type", async (req, res) => {
-    // console.log("-----------------------------------");
+    req.session.returnTo = req.originalUrl;
     let product_type = req.params.type
     if (product_type == 'Dresses Skirts girls'){
         product_type = 'Dresses/Skirts girls'
@@ -29,7 +29,7 @@ router.get("/type/:type", async (req, res) => {
 });
 
 router.get("/wear/:type", async (req, res) => {
-    // console.log("-----------------------------------");
+    req.session.returnTo = req.originalUrl;
     let people_type = req.params.type
     if (people_type == 'BabyChildren'){
         people_type = 'Baby/Children'
@@ -47,6 +47,7 @@ router.get("/wear/:type", async (req, res) => {
 });
 
 router.get("/color/:color", async (req, res) => {
+    req.session.returnTo = req.originalUrl;
     const product_color = req.params.color;
     let good_detailFound = await Good_Detail.find({color : product_color});
     let recommendation_array = []
