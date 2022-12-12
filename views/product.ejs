@@ -38,7 +38,7 @@
                           <a href="/adding/like/<%= good_details[i].good_id %>" style="text-decoration:none">
                             <button type="button" class="btn btn-outline-dark btn-lg" style="width:180px;">
                             <img src="http://localhost:8080/heart-2.png" alt="喜歡" style="width:25px;margin: 2px;">
-                            <span class="px-2">喜歡</span>
+                            <span class="px-2">移除喜歡</span>
                           </button>
                           </a>
                           <% break %>
@@ -61,7 +61,7 @@
                           <a href="/adding/shopping-cart/<%= good_details[i].good_id %>" style="text-decoration:none">
                             <button type="button" class="btn btn-outline-dark btn-lg" style="width:200px;">
                             <img src="http://localhost:8080/add-to-cart-2.png" alt="加入購物車" style="width:25px;margin: 2px;">
-                            <span class="px-2">加入購物車</span>
+                            <span class="px-2">移除購物車</span>
                             </button>
                           </a>
                           <% break %>
@@ -119,7 +119,7 @@
                         <% break %>
                       <% } %>
                       <% if (j == shoppingCart_details.length-1) { %>
-                        <a href="/adding/shopping-cart/<%= association_goods[i].good_id %>" style="text-decoration:none"><span style="color:gray;">加入購物車 <img src="http://localhost:8080/add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span></a>
+                        <a href="/adding/shopping-cart/<%= association_goods[i].good_id %>" style="text-decoration:none"><span style="color:gray;">移除購物車 <img src="http://localhost:8080/add-to-cart.png" alt="加入購物車" style="width: 20px;margin:2px;"></span></a>
                       <% } %>
                     <% } %>
                   </div>   
