@@ -3,6 +3,8 @@ const passport = require("passport");
 const bcrypt = require("bcrypt");
 const Good_Detail = require("../models/good_detail-model")
 const Recommendation = require("../models/recommendation-model"); 
+const Like = require("../models/like-model");
+const Shopping_Cart = require("../models/shopping_cart-model");
 
 router.get("/type/:type", async (req, res) => {
     req.session.returnTo = req.originalUrl;
@@ -42,8 +44,10 @@ router.get("/wear/:type", async (req, res) => {
             let good_Found = await Good_Detail.find({good_id : recommedationFound[i].good});
             recommendation_array.push(good_Found[0]);
         }
-    }    
-    res.render("classify", {user: req.user, good_details : good_detailFound, type:people_type, recommendation_goods : recommendation_array});
+    }   
+    let likeFound = await Like.find({user : req.user._id}); 
+    let shoppingCartFound = await Shopping_Cart.find({user : req.user._id});
+    res.render("classify", {user: req.user, good_details : good_detailFound, type:people_type, recommendation_goods : recommendation_array, like_details : likeFound, shoppingCart_details : shoppingCartFound});
 });
 
 router.get("/color/:color", async (req, res) => {
@@ -58,7 +62,9 @@ router.get("/color/:color", async (req, res) => {
             recommendation_array.push(good_Found[0]);
         }
     }
-    res.render("color", {user: req.user, good_details : good_detailFound, color:product_color, recommendation_goods : recommendation_array});
+    let likeFound = await Like.find({user : req.user._id}); 
+    let shoppingCartFound = await Shopping_Cart.find({user : req.user._id});
+    res.render("color", {user: req.user, good_details : good_detailFound, color:product_color, recommendation_goods : recommendation_array, like_details : likeFound, shoppingCart_details : shoppingCartFound});
 })
 
 

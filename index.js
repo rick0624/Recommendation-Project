@@ -92,8 +92,9 @@ app.get("/", async (req, res) => {
             let good_detailFound = await Good_Detail.find({good_id : recommedationFound[i].good});
             good_detail_array.push(good_detailFound[0]);
         }
-        
-        res.render("index", { user: req.user, good_details : good_detail_array });
+        let likeFound = await Like.find({user : req.user._id}); 
+        let shoppingCartFound = await Shopping_Cart.find({user : req.user._id});
+        res.render("index", { user: req.user, good_details : good_detail_array, like_details : likeFound, shoppingCart_details : shoppingCartFound });
     }
 });
 
@@ -108,7 +109,9 @@ app.get("/product_detail/:id", async (req, res) => {
         let good_Found = await Good_Detail.find({good_id : associationFound[i].Item_B});
         association_good_array.push(good_Found[0]);
     }
-    res.render("product", {user: req.user, good_details : good_detailFound, association_goods : association_good_array});
+    let likeFound = await Like.find({user : req.user._id}); 
+    let shoppingCartFound = await Shopping_Cart.find({user : req.user._id});
+    res.render("product", {user: req.user, good_details : good_detailFound, association_goods : association_good_array, like_details : likeFound, shoppingCart_details : shoppingCartFound});
 });
 
 app.get("/like", async (req, res) => {

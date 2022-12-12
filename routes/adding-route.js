@@ -17,7 +17,7 @@ router.get("/like/:product_id", async (req, res) => {
         }
     }
     else{
-        req.flash("error_msg", "This product has already been liked.");
+        await Like.deleteOne({$and: [{user : req.user._id}, {product : req.params.product_id}]});
         res.redirect(req.session.returnTo);
     }
 });
@@ -36,7 +36,7 @@ router.get("/shopping-cart/:product_id", async (req, res) => {
         }
     }
     else{
-        req.flash("error_msg", "This product has already been added to shopping cart.");
+        await Shopping_Cart.deleteOne({$and: [{user : req.user._id}, {product : req.params.product_id}]});
         res.redirect(req.session.returnTo);
     }
 });
