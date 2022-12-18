@@ -10,14 +10,14 @@
       <!--   side bar  -->
       <!-- 更動 新增sidebar.ejs-->
       <%- include ("partials/sidebar") %>
-      <div class="p-3 mx-2" style="margin-top:65px;float:left;width:75%;background-color: blanchedalmond;">
+      <div class="p-3 mx-2" style="margin-top:65px;float:left;width:75%;">
         <!--  商品  -->
         <% if (good_details.length > 0) { %>
         <div class="p-2">
             <!-- 範例 -->
             <% for (let i = 0; i < good_details.length; i++) { %>
-            <div class="p-2 my-3" style="background-color:lightblue;width: 80%;">
-              <img src="<%= good_details[i].image %>" alt="image" style="background-color:lightyellow;width: 300px;height:400px;margin-left: auto;margin-right: auto;">
+            <div class="p-2 my-3" style="width: 80%;">
+              <img src="<%= good_details[i].image %>" alt="image" style="width: 300px;height:400px;margin-left: auto;margin-right: auto;">
               <div class="px-2" style="float: right;width: 55%;">
                 <div>
                   <h3><%= good_details[i].name %></h3>
@@ -90,9 +90,9 @@
             <% if (association_goods.length > 0) { %>
               <!-- 範例 -->
               <% for (let i = 0; i < association_goods.length; i++) { %>
-                <div class="mx-3 my-3" style="background-color:lightblue;width:200px;height:360px;display: inline-block">
+                <div class="mx-3 my-3" style="width:200px;height:360px;display: inline-block">
                   <a href="/product_detail/<%= association_goods[i].good_id %>" style="color:black;">
-                    <img class="product" src="<%= association_goods[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
+                    <img class="product" src="<%= association_goods[i].image %>" alt="image" class="py-2" style="width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
                   </a>
                   <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
                     <span style="color: black;"><%= association_goods[i].name %></span>

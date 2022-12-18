@@ -10,7 +10,7 @@
       <!--   side bar  -->
       <!-- 更動 新增sidebar.ejs-->
       <%- include ("partials/sidebar") %>
-      <div class="p-3 mx-2" style="margin-top:65px;float:left;width:75%;background-color: blanchedalmond;">
+      <div class="p-3 mx-2" style="margin-top:65px;float:left;width:75%;">
         <!--  分類  -->
         <div class="p-2"> 
           <div class="mx-3"><h5>依照類別分類 - <%= color %></h5></div>
@@ -18,9 +18,9 @@
           <% if (good_details.length > 0) { %>
           <!-- 範例 -->
            <% for (let i = 0; i < good_details.length; i++) { %>
-            <div class="mx-3 my-3" style="background-color:lightblue;width:200px;height:360px;display: inline-block">
+            <div class="mx-3 my-3" style="width:200px;height:360px;display: inline-block">
               <a href="/product_detail/<%= good_details[i].good_id %>" style="color:black;">
-                <img class="product" src="<%= good_details[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
+                <img class="product" src="<%= good_details[i].image %>" alt="image" class="py-2" style="width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
               </a>
               <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
                 <span style="color: black;"><%= good_details[i].name %></span>
@@ -65,9 +65,9 @@
             <div class="mx-3"><h5>為您推薦</h5></div>
             <!-- 範例 -->
              <% for (let i = 0; i < recommendation_goods.length; i++) { %>
-            <div class="mx-3 my-3" style="background-color:lightblue;width:200px;height:360px;display: inline-block">
+            <div class="mx-3 my-3" style="width:200px;height:360px;display: inline-block">
               <a href="/product_detail/<%= recommendation_goods[i].good_id %>" style="color:black;">
-                <img class="product" src="<%= recommendation_goods[i].image %>" alt="image" class="py-2" style="background-color:lightyellow;width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
+                <img class="product" src="<%= recommendation_goods[i].image %>" alt="image" class="py-2" style="width:195px;height:250px;display:block;margin-left: auto;margin-right: auto;">
               </a>
               <div class="px-2" style="width:170px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
                 <span style="color: black;"><a href="/product_detail/<%= recommendation_goods[i].good_id %>"><%= recommendation_goods[i].name %></a></span>
